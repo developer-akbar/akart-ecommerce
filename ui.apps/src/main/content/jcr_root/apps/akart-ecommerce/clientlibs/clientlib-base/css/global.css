@@ -1,0 +1,170 @@
+/* Global styles */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+}
+
+main {
+    padding: 20px;
+}
+
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+
+div[class*='cmp-akart-form-'] {
+    /*margin-bottom: 20px;*/
+    padding: 20px;
+    border-radius: 5px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 75px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="url"],
+textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.banner img {
+    width: 100%;
+}
+
+.featured-products {
+    /* display: grid; */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 20px;
+}
+
+button {
+    width: 100%;
+    background-color: #f7d705;
+    color: #0a0a0a;
+    border: none;
+    padding: 5px 35px;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    box-shadow: 0 0px 1px rgb(0, 0, 0.1);
+    /* transition: background-color 0.2s ease-in-out; */
+}
+
+button:hover {
+    background-color: #ac991e;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:active{
+    box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
+    background-color: #f7d705;
+    transform: translateY(4px);
+}
+
+button[disabled] {
+    cursor: not-allowed;
+    background-color: #c2c2c2;
+}
+
+.currency-inr:before {
+    position: relative;
+    top: 0;
+    content:"₹";
+}
+
+.product p {
+    font-weight: bold;
+    font-size: 28px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+.cmp-form-button__msg-formservererror {
+	display: block !important;
+    color: red;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .featured-products {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    h1 {
+        font-size: 24px;
+    }
+}
+
+@media screen and (min-width: 769px) {
+    .featured-products {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+}
+
+.created-product-info {
+    margin-top: 15px;
+    background: #63d2688f;
+    padding: 15px;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+#cart-count {
+	position: relative;
+    top: -10px;
+    background-color: blue;
+    border-radius: 50%;
+    padding: 4px 8px
+}

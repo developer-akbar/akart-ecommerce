@@ -1,0 +1,6 @@
+#base=js
+
+editproductdetails.js
+buynowproduct.js
+addtocart.js
+cart.js

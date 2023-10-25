@@ -1,0 +1,554 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2023-08-28T12:26:45.228+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/akart-ecommerce/settings/wcm/templates/akart-base-page-template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Add Product Details Form"
+        sling:resourceType="akart-ecommerce/components/page">
+        <root
+            jcr:lastModified="{Date}2023-08-09T10:47:57.634+05:30"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid"
+            layout="responsiveGrid">
+            <header
+                jcr:created="{Date}2023-08-09T10:04:28.058+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2023-08-09T10:46:45.084+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="akart-ecommerce/components/content/header"/>
+            <responsivegrid
+                jcr:created="{Date}2023-08-09T10:12:48.939+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2023-08-09T10:47:36.398+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <text
+                    jcr:created="{Date}2023-08-10T12:39:24.712+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2023-08-10T12:39:37.458+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="akart-ecommerce/components/text"
+                    text="&lt;h1>Add Product&lt;/h1>&#xd;&#xa;"
+                    textIsRich="true"/>
+                <container
+                    jcr:created="{Date}2023-08-10T11:19:33.771+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2023-08-23T20:45:20.639+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="akart-ecommerce/components/form/container"
+                    action="/content/usergenerated/akart-ecommerce/en-us/misc/add-product-details-form/cq-gen1691646573773/"
+                    actionType="foundation/components/form/actions/store"
+                    redirect="/content/akart-ecommerce/en-us/misc/thank-you">
+                    <text
+                        jcr:created="{Date}2023-08-10T11:22:36.060+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T11:24:27.278+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="akart-ecommerce/components/text"
+                        text="&lt;h3>Basic Information&lt;/h3>&#xd;&#xa;"
+                        textIsRich="true"/>
+                    <text_1547483372
+                        jcr:created="{Date}2023-08-10T11:23:22.477+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T11:28:29.285+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Product Name"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodName"
+                        required="true"
+                        requiredMessage="Please enter product name"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_1547483372>
+                    <text_538319304
+                        jcr:created="{Date}2023-08-10T11:23:33.336+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T11:28:46.421+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Category"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodCategory"
+                        required="true"
+                        requiredMessage="Please enter product category"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_538319304>
+                    <text_538319304_copy_293232371
+                        jcr:created="{Date}2023-08-10T11:23:33.336+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T12:27:10.428+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Sub Category"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodSubCategory"
+                        requiredMessage="Please enter product sub category"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_538319304_copy_293232371>
+                    <text_2039110254
+                        jcr:created="{Date}2023-08-10T12:22:55.223+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T12:23:22.893+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Brand Name"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodBrand"
+                        required="true"
+                        requiredMessage="Please enter brand name"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_2039110254>
+                    <text_1225404701
+                        jcr:created="{Date}2023-08-10T12:24:32.657+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T12:25:31.479+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Product Image Path"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        helpMessage="Please enter product image path from DAM"
+                        name="prodImagePath"
+                        rows="2"
+                        type="text"
+                        usePlaceholder="true">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_1225404701>
+                    <text_1253157899
+                        jcr:created="{Date}2023-08-10T11:23:54.529+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T11:24:33.263+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="akart-ecommerce/components/text"
+                        text="&lt;h3>Pricing and Availability&lt;/h3>&#xd;&#xa;"
+                        textIsRich="true"/>
+                    <text_1547483372_copy
+                        jcr:created="{Date}2023-08-10T11:23:22.477+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T11:29:50.167+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Price"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        constraintMessage="Please enter in number format"
+                        name="prodPrice"
+                        required="true"
+                        requiredMessage="Please enter product price"
+                        rows="2"
+                        type="number">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_1547483372_copy>
+                    <text_538319304_copy
+                        jcr:created="{Date}2023-08-10T11:23:33.336+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T11:30:24.133+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="In Stock"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        constraintMessage="Please enter in number format"
+                        name="prodsInStock"
+                        required="true"
+                        requiredMessage="Please enter stock availability"
+                        rows="2"
+                        type="number">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_538319304_copy>
+                    <text_538319304_copy_1956273944
+                        jcr:created="{Date}2023-08-10T11:23:33.336+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T12:30:05.132+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Variants"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodVariants"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_538319304_copy_1956273944>
+                    <text_1253157899_copy
+                        jcr:created="{Date}2023-08-10T11:23:54.529+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T11:25:00.980+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="akart-ecommerce/components/text"
+                        text="&lt;h3>Description and Features&lt;/h3>&#xd;&#xa;"
+                        textIsRich="true"/>
+                    <text_538319304_copy_
+                        jcr:created="{Date}2023-08-10T11:23:33.336+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T11:26:48.739+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Key Features (comma-separated)"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodKeyFeatures"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_538319304_copy_>
+                    <text_538319304_copy_2015356820
+                        jcr:created="{Date}2023-08-10T11:23:33.336+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T12:30:48.972+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Manufacturer"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodManufacturer"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_538319304_copy_2015356820>
+                    <text_538319304_copy_104349133
+                        jcr:created="{Date}2023-08-10T11:23:33.336+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T12:31:54.748+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Manufacturing Date"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodMfg"
+                        required="true"
+                        requiredMessage="Please enter product manufacturing date"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_538319304_copy_104349133>
+                    <text_538319304_copy_206267865
+                        jcr:created="{Date}2023-08-10T11:23:33.336+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T12:32:25.033+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Expiry"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodExpiry"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_538319304_copy_206267865>
+                    <text_538319304_copy_535556643
+                        jcr:created="{Date}2023-08-10T11:23:33.336+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T12:35:59.185+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Used By"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodUsedBy"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_538319304_copy_535556643>
+                    <text_1547483372_copy_1271654686
+                        jcr:created="{Date}2023-08-10T11:23:22.477+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T17:38:49.558+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Description"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodDescription"
+                        rows="3"
+                        type="textarea">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_1547483372_copy_1271654686>
+                    <text_1253157899_copy_200719237
+                        jcr:created="{Date}2023-08-10T11:23:54.529+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T11:25:21.043+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="akart-ecommerce/components/text"
+                        text="&lt;h3>Specifications&lt;/h3>&#xd;&#xa;"
+                        textIsRich="true"/>
+                    <text_538319304_copy_611768086
+                        jcr:created="{Date}2023-08-10T11:23:33.336+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T12:28:02.116+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Size"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodSize"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_538319304_copy_611768086>
+                    <text_538319304_copy_1519679843
+                        jcr:created="{Date}2023-08-10T11:23:33.336+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T12:28:17.335+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Color"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodColor"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_538319304_copy_1519679843>
+                    <text_538319304_copy_1269562364
+                        jcr:created="{Date}2023-08-10T11:23:33.336+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T12:28:43.147+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Weight"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodWeight"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_538319304_copy_1269562364>
+                    <text_538319304_copy_544055029
+                        jcr:created="{Date}2023-08-10T11:23:33.336+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T12:29:26.698+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Metrics"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodMetrics"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_538319304_copy_544055029>
+                    <text_1547483372_copy_57996849
+                        jcr:created="{Date}2023-08-10T11:23:22.477+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T17:38:55.831+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Specifications"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodSpecifications"
+                        rows="3"
+                        type="textarea">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_1547483372_copy_57996849>
+                    <text_1253157899_copy_1509909832
+                        jcr:created="{Date}2023-08-10T11:23:54.529+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T12:33:27.243+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="akart-ecommerce/components/text"
+                        text="&lt;h3>Others&lt;/h3>&#xd;&#xa;"
+                        textIsRich="true"/>
+                    <text_538319304_copy__374689425
+                        jcr:created="{Date}2023-08-10T11:23:33.336+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T12:34:00.873+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Barcode"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodBarcode"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_538319304_copy__374689425>
+                    <text_538319304_copy__949927509
+                        jcr:created="{Date}2023-08-10T11:23:33.336+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T12:34:44.654+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Launch Date"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodLaunchDate"
+                        rows="2"
+                        type="date">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_538319304_copy__949927509>
+                    <text_538319304_copy__1059796702
+                        jcr:created="{Date}2023-08-10T11:23:33.336+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T12:35:21.492+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="SEO Name"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodSeoName"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_538319304_copy__1059796702>
+                    <button
+                        jcr:created="{Date}2023-08-10T12:37:25.659+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T20:15:29.882+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Add Product"
+                        sling:resourceType="akart-ecommerce/components/form/button"
+                        name="add-product"
+                        type="button">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="4"/>
+                        </cq:responsive>
+                    </button>
+                    <cq:responsive jcr:primaryType="nt:unstructured">
+                        <default
+                            jcr:primaryType="nt:unstructured"
+                            offset="1"
+                            width="10"/>
+                    </cq:responsive>
+                    <modal
+                        jcr:created="{Date}2023-08-28T11:59:53.518+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-28T12:26:45.223+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        sling:resourceType="akart-ecommerce/components/content/modal"
+                        modalBody="&lt;p>The product is already available. Do you want to update.&lt;/p>&#xd;&#xa;"
+                        modalTitle="Update Product"
+                        primaryButtonLabel="Yes"
+                        secondaryButtonLabel="No"
+                        textIsRich="true"/>
+                </container>
+            </responsivegrid>
+            <footer
+                jcr:created="{Date}2023-08-09T10:07:18.345+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2023-08-09T10:46:47.162+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="akart-ecommerce/components/content/footer"/>
+        </root>
+    </jcr:content>
+</jcr:root>

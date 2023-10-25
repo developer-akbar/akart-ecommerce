@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2023-08-10T11:03:59.475+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/akart-ecommerce/settings/wcm/templates/akart-base-page-template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Add Product Details"
+        sling:resourceType="akart-ecommerce/components/page">
+        <root
+            jcr:lastModified="{Date}2023-08-09T10:47:57.634+05:30"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid"
+            layout="responsiveGrid">
+            <header
+                jcr:created="{Date}2023-08-09T10:04:28.058+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2023-08-09T10:46:45.084+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="akart-ecommerce/components/content/header"/>
+            <responsivegrid
+                jcr:created="{Date}2023-08-09T10:12:48.939+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2023-08-09T10:47:36.398+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid">
+                <addproduct
+                    jcr:created="{Date}2023-08-09T11:24:50.295+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2023-08-10T11:03:59.468+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="akart-ecommerce/components/content/addproduct"
+                    heading="Add Product">
+                    <productFields jcr:primaryType="nt:unstructured">
+                        <item0
+                            jcr:primaryType="nt:unstructured"
+                            fieldGroupName="Basic Information">
+                            <fieldDetails jcr:primaryType="nt:unstructured">
+                                <item0
+                                    jcr:primaryType="nt:unstructured"
+                                    fieldLabel="Product Name"
+                                    fieldName="prodName"
+                                    fieldType="text"/>
+                                <item1
+                                    jcr:primaryType="nt:unstructured"
+                                    fieldLabel="Category"
+                                    fieldName="prodCategory"
+                                    fieldType="text"/>
+                            </fieldDetails>
+                        </item0>
+                        <item1
+                            jcr:primaryType="nt:unstructured"
+                            fieldGroupName="Pricing and Availability">
+                            <fieldDetails jcr:primaryType="nt:unstructured">
+                                <item0
+                                    jcr:primaryType="nt:unstructured"
+                                    fieldLabel="Price"
+                                    fieldName="prodPrice"
+                                    fieldType="text"/>
+                                <item1
+                                    jcr:primaryType="nt:unstructured"
+                                    fieldLabel="In Stock"
+                                    fieldName="prodsAvailableInStock"
+                                    fieldType="text"/>
+                            </fieldDetails>
+                        </item1>
+                        <item2
+                            jcr:primaryType="nt:unstructured"
+                            fieldGroupName="Description and Features">
+                            <fieldDetails jcr:primaryType="nt:unstructured">
+                                <item0
+                                    jcr:primaryType="nt:unstructured"
+                                    fieldLabel="Description"
+                                    fieldName="prodDescription"
+                                    fieldType="textarea"/>
+                                <item1
+                                    jcr:primaryType="nt:unstructured"
+                                    fieldLabel="Key Features (comma-separated)"
+                                    fieldName="prodKeyFeatures"
+                                    fieldType="text"/>
+                            </fieldDetails>
+                        </item2>
+                        <item3
+                            jcr:primaryType="nt:unstructured"
+                            fieldGroupName="Specifications">
+                            <fieldDetails jcr:primaryType="nt:unstructured">
+                                <item0
+                                    jcr:primaryType="nt:unstructured"
+                                    fieldLabel="Specifications"
+                                    fieldName="prodSpecifications"
+                                    fieldType="textarea"/>
+                            </fieldDetails>
+                        </item3>
+                    </productFields>
+                </addproduct>
+                <container
+                    jcr:created="{Date}2023-08-10T10:00:46.039+05:30"
+                    jcr:createdBy="admin"
+                    jcr:lastModified="{Date}2023-08-10T10:00:46.039+05:30"
+                    jcr:lastModifiedBy="admin"
+                    jcr:primaryType="nt:unstructured"
+                    sling:resourceType="akart-ecommerce/components/form/container"
+                    action="/content/usergenerated/akart-ecommerce/en-us/misc/add-product-details/cq-gen1691641846046/"
+                    actionType="foundation/components/form/actions/store">
+                    <text
+                        jcr:created="{Date}2023-08-10T10:02:01.066+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T10:03:20.073+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Product Name"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodName"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text>
+                    <text_1389788397
+                        jcr:created="{Date}2023-08-10T10:02:09.219+05:30"
+                        jcr:createdBy="admin"
+                        jcr:lastModified="{Date}2023-08-10T10:10:47.066+05:30"
+                        jcr:lastModifiedBy="admin"
+                        jcr:primaryType="nt:unstructured"
+                        jcr:title="Category"
+                        sling:resourceType="akart-ecommerce/components/form/text"
+                        name="prodCategory"
+                        rows="2"
+                        type="text">
+                        <cq:responsive jcr:primaryType="nt:unstructured">
+                            <default
+                                jcr:primaryType="nt:unstructured"
+                                offset="0"
+                                width="3"/>
+                        </cq:responsive>
+                    </text_1389788397>
+                </container>
+            </responsivegrid>
+            <footer
+                jcr:created="{Date}2023-08-09T10:07:18.345+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2023-08-09T10:46:47.162+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="akart-ecommerce/components/content/footer"/>
+        </root>
+    </jcr:content>
+</jcr:root>

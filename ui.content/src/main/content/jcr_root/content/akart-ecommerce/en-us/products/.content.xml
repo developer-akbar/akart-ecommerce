@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2023-08-17T10:07:23.277+05:30"
+        cq:lastModifiedBy="admin"
+        cq:template="/conf/akart-ecommerce/settings/wcm/templates/akart-base-page-template"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Products"
+        sling:resourceType="akart-ecommerce/components/page">
+        <root
+            jcr:lastModified="{Date}2023-08-09T10:47:57.634+05:30"
+            jcr:lastModifiedBy="admin"
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="wcm/foundation/components/responsivegrid"
+            layout="responsiveGrid">
+            <header
+                jcr:created="{Date}2023-08-09T10:04:28.058+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2023-08-09T10:46:45.084+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="akart-ecommerce/components/content/header"/>
+            <responsivegrid
+                jcr:created="{Date}2023-08-09T10:12:48.939+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2023-08-09T10:47:36.398+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="wcm/foundation/components/responsivegrid"/>
+            <footer
+                jcr:created="{Date}2023-08-09T10:07:18.345+05:30"
+                jcr:createdBy="admin"
+                jcr:lastModified="{Date}2023-08-09T10:46:47.162+05:30"
+                jcr:lastModifiedBy="admin"
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="akart-ecommerce/components/content/footer"/>
+        </root>
+    </jcr:content>
+    <puma-shoes/>
+    <nike-2023-shoes/>
+    <reebok-mens-lite-3-0-shoes/>
+    <reebok-mens-lite-3-0-shoes-greys/>
+    <reebok-mens-lite-3-0-shoes-greyss/>
+</jcr:root>

@@ -1,0 +1,28 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html">
+    <sly data-sly-call="${clientlib.all @ categories='akart.components.addproduct'}" />
+
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
+<sly data-sly-call="${template.placeholder @ isEmpty=true}"></sly>
+
+<sly data-sly-use.model="com.akart.ecommerce.core.models.AddProductModel"/>
+<h1>${model.heading}</h1>
+
+
+<form class="product-form">
+    <!-- Basic Info -->
+    <sly data-sly-list.productFields="${model.productFields.listChildren}">
+        <fieldset>
+            <legend>${productFields.fieldGroupName}</legend>
+			<sly data-sly-list.fieldDetails="${productFields.listChildren}">
+				<sly data-sly-list="${fieldDetails.listChildren}">
+                    <div class="field-container">
+                        <label for="prodName">${item.fieldLabel}</label>
+                        <input type="${item.fieldType}" id="${item.fieldName}" name="${item.fieldName}" required>
+                    </div>
+				</sly>
+			</sly>
+        </fieldset>
+    </sly>
+
+    <button type="submit">Add Product</button>
+</form>

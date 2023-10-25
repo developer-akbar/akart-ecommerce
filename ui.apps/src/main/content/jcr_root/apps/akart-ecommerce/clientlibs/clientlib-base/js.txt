@@ -1,0 +1,8 @@
+#base=js
+
+jquery.min.js
+#bootstrap.min.js
+jquery.validate.min.1.19.3.js
+jquery.serializeToJSON.min.js
+akart-commons.js
+addproduct.js

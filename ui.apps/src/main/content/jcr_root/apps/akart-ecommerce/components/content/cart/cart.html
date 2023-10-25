@@ -1,0 +1,62 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"
+	integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg=="
+	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientlib.all @ categories='akart.components.cart'}" />
+
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
+<sly data-sly-call="${template.placeholder @ isEmpty=true}"></sly>
+
+<h1>Your Shopping Cart</h1>
+<div id="cart-items">
+	<!-- Cart items to show here in li-->
+	<script id="cart-template" type="text/handlebars-template">
+		<div class="cart-wrapper">
+			<div class="cart-items-wrapper">
+				{{#each this}}
+					<div class="product">
+						<div class="product-info">
+							<div class="product-image">
+								<img src="{{prodImagePath}}" alt="{{prodName}}">
+							</div>
+							<div class="product-details">
+								<h3 class="product-name">{{prodName}}</h3>
+								<p class="product-price">₹{{prodPrice}}</p>
+								<p class="product-id hide">{{prodId}}</p>
+							</div>
+						</div>
+						<div class="action-buttons">
+								<div class="add-to-cart-button">								
+									<button class="cart-button" onclick="decrementCart(this, event)" {{#ifvalue itemCount value="1"}}disabled{{/ifvalue}}>-</button>
+									<span>{{itemCount}}</span>
+									<button class="cart-button" onclick="incrementCart(this, event)" {{#ifvalue itemCount value="10"}}disabled{{/ifvalue}}>+</button>
+								</div>
+							<div class="delete-product">
+								<button class="remove-item-button">Remove</button>
+							</div>
+						</div>
+						<div class="item-price currency-inr">{{prodPrice}}</div>
+						<div class="items-total-price currency-inr">{{multiply prodPrice itemCount}}</div>
+					</div>
+				{{/each}}
+			</div>
+			<div class="cart-price-wrapper">
+				<h3 class="heading">Order Summary</h3>
+				<table class="price-details-table">
+					<tr>
+						<td class="plain-text">Price</td>
+						<td class="cart-price currency-inr">2000</td>
+					</tr>
+					<tr>
+						<td class="plain-text">Discount</td>
+						<td class="discount-price currency-inr">0</td>
+					</tr>
+					<tr>
+						<td class="plain-text">Total</td>
+						<td class="total-amount currency-inr">10000</td>
+					</tr>
+				</div>
+			</div>
+		</div>
+	</script>
+</div>

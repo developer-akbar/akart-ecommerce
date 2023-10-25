@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcr:root xmlns:sling="http://sling.apache.org/jcr/sling/1.0" xmlns:cq="http://www.day.com/jcr/cq/1.0" xmlns:jcr="http://www.jcp.org/jcr/1.0" xmlns:mix="http://www.jcp.org/jcr/mix/1.0" xmlns:nt="http://www.jcp.org/jcr/nt/1.0"
+    jcr:primaryType="cq:Page">
+    <jcr:content
+        cq:lastModified="{Date}2023-08-25T18:11:51.885+05:30"
+        cq:lastModifiedBy="akartServiceUser"
+        cq:lastReplicated="{Date}2023-08-25T18:11:52.065+05:30"
+        cq:lastReplicatedBy="akartServiceUser"
+        cq:lastReplicationAction="Activate"
+        cq:template="/conf/akart-ecommerce/settings/wcm/templates/akart-pdp-template"
+        jcr:isCheckedOut="{Boolean}true"
+        jcr:mixinTypes="[mix:versionable]"
+        jcr:primaryType="cq:PageContent"
+        jcr:title="Puma Shoes"
+        jcr:uuid="a9121ab1-e8f6-436c-a355-c580789cd926"
+        sling:resourceType="akart-ecommerce/components/page">
+        <root
+            jcr:primaryType="nt:unstructured"
+            sling:resourceType="akart-ecommerce/components/container"
+            layout="responsiveGrid">
+            <container
+                jcr:primaryType="nt:unstructured"
+                sling:resourceType="akart-ecommerce/components/container"
+                layout="responsiveGrid"/>
+        </root>
+    </jcr:content>
+    <product_details
+        jcr:primaryType="nt:unstructured"
+        prodBarcode=""
+        prodBrand="Puma"
+        prodCategory="Footwear"
+        prodColor="White"
+        prodDescription=""
+        prodExpiry=""
+        prodId="{Long}80307863"
+        prodImagePath="/content/dam/akart-ecommerce/product-images/puma.jpg"
+        prodKeyFeatures=""
+        prodLaunchDate=""
+        prodManufacturer="Puma"
+        prodMetrics=""
+        prodMfg="06-08-2022"
+        prodName="Puma Shoes"
+        prodPrice="1299"
+        prodSeoName="puma-white-shoes"
+        prodsInStock="10"
+        prodSize="10"
+        prodSpecifications=""
+        prodSubCategory="Shoe"
+        prodUsedBy=""
+        prodVariants="8,9,10"
+        prodWeight="320g"/>
+</jcr:root>
