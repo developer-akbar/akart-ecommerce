@@ -10,6 +10,7 @@
 
 .product-info {
     display: flex;
+    width: 500px;
 }        
 
 .product-link {
@@ -33,11 +34,9 @@
     padding: 0 20px;
 }
 
-.action-buttons {
-    text-align: center;
-	display: flex;
-	/* flex-direction: column; */
-	gap: 20px
+.items-price {
+    display: flex;
+    grid-gap: 10px;
 }
 
 .product h3 {
