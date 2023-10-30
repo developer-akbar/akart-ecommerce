@@ -1,4 +1,5 @@
 #base=js
 
+handlebars.min.js
 cart.js
 updatecart.js

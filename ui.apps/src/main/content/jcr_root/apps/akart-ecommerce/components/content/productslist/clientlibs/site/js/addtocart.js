@@ -1,4 +1,5 @@
-const cart = JSON.parse(localStorage.getItem('cart'));
+//const cart = JSON.parse(localStorage.getItem('cart'));
+const cart = [];
 let savedCartCount = cart != undefined ? cart.length : 0;
 $('#cart-count').text(savedCartCount);
 
@@ -33,7 +34,7 @@ function updateCart1(thisButton, item) {
 //const cart = [];
 
 $(document).on("click", ".add-to-cart-button", function () {
-    let thisProductId = $(this).parents('.action-buttons').siblings('.product-info').find('.product-details p.product-id').text();
+    let thisProductId = $(this).parents('.action-buttons').siblings('.product-info').find('.product-details .product-id').text();
 
     let existingCartItem = cart.find(item => item.productId == thisProductId);
     if (existingCartItem) {
@@ -64,7 +65,7 @@ function removeItem(productId) {
 
 function incrementCart(thisButton, event) {
     event.stopPropagation();
-    let thisProductId = $(thisButton).parents('.action-buttons').siblings('.product-info').find('.product-details p.product-id').text();
+    let thisProductId = $(thisButton).parents('.action-buttons').siblings('.product-info').find('.product-details .product-id').text();
     const existingCartItem = cart.find(item => item.productId == thisProductId);
 
     if (existingCartItem) {
@@ -81,7 +82,7 @@ function incrementCart(thisButton, event) {
 
 function decrementCart(thisButton, event) {
     event.stopPropagation();
-    let thisProductId = $(thisButton).parents('.action-buttons').siblings('.product-info').find('.product-details p.product-id').text();
+    let thisProductId = $(thisButton).parents('.action-buttons').siblings('.product-info').find('.product-details .product-id').text();
     const existingCartItem = cart.find(item => item.productId == thisProductId);
 
     if (existingCartItem && existingCartItem.quantity > 0) {

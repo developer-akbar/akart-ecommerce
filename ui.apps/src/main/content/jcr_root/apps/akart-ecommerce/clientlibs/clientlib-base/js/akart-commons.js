@@ -1,7 +1,8 @@
 // Prepopulate product form with query parameters from the URL
 $(document).ready(function () {
     const cart = localStorage.getItem('cart');
-    $('#cart-count').text(JSON.parse(cart).length);
+    cart != undefined ? $('#cart-count').text(JSON.parse(cart).length) : 0;
+    
 
     const queryParams = new URLSearchParams(window.location.search);
 

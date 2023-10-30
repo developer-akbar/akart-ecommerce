@@ -64,7 +64,16 @@ public class CartServlet extends SlingAllMethodsServlet {
 								}
 							}
 							productProperties.put("itemCount", productQty);
-							int prodOffer = Math.round(((Float.parseFloat(productProperties.getString("prodMrpPrice")) - Float.parseFloat(productProperties.getString("prodPrice"))) / Float.parseFloat(productProperties.getString("prodMrpPrice"))) * 100);
+							
+							int prodsInStock = Integer.parseInt(productProperties.has("prodsInStock")
+									&& !productProperties.getString("prodsInStock").isEmpty()
+											? productProperties.getString("prodsInStock")
+											: "0");
+							productProperties.put("isInStock", prodsInStock >= 1);
+							
+							int prodOffer = Math.round(((Float.parseFloat(productProperties.getString("prodMrpPrice"))
+									- Float.parseFloat(productProperties.getString("prodPrice")))
+									/ Float.parseFloat(productProperties.getString("prodMrpPrice"))) * 100);
 							productProperties.put("prodOffer", prodOffer);
 							allProductProperties.put(productId, productProperties);
 						}

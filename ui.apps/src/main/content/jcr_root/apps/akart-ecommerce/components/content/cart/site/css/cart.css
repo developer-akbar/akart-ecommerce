@@ -96,3 +96,7 @@ td.currency-inr {
     font-size: 18px;
     margin-top: 24px;
 }
+
+.separator {
+    border: 1px solid;
+}
