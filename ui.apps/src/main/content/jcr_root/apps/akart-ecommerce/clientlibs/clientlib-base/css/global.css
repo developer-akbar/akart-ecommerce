@@ -95,14 +95,14 @@ button:focus {
     outline: none;
 }
 
-button:active{
+button:active {
     box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
     background-color: #f7d705;
     transform: translateY(4px);
 }
 
 button[disabled] {
-    cursor: not-allowed;
+    cursor: not-allowed !important;
     background-color: #c2c2c2;
 }
 

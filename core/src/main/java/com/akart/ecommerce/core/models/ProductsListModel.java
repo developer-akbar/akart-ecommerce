@@ -122,6 +122,16 @@ public class ProductsListModel {
 							productDetailsMap.put(productProperty.getName(), productProperty.getValue().toString());
 						}
 					}
+					
+					int prodsInStock = Integer.parseInt(
+							!productDetailsMap.get("prodsInStock").isEmpty() ? productDetailsMap.get("prodsInStock")
+									: "0");
+					productDetailsMap.put("isInStock", prodsInStock >= 1 ? "true" : "false");
+					
+					int prodOffer = Math.round(((Float.parseFloat(productDetailsMap.get("prodMrpPrice"))
+							- Float.parseFloat(productDetailsMap.get("prodPrice")))
+							/ Float.parseFloat(productDetailsMap.get("prodMrpPrice"))) * 100);
+					productDetailsMap.put("prodOffer", Integer.toString(prodOffer));
 					productDetailsMap.put("productPath", AKartUtils.addHtmlExtension(productPage.getPath()));
 					
 					productList.add(productDetailsMap);

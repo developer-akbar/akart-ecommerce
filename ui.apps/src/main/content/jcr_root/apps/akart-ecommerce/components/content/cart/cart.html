@@ -1,6 +1,3 @@
-<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.8/handlebars.min.js"
-	integrity="sha512-E1dSFxg+wsfJ4HKjutk/WaCzK7S2wv1POn1RRPGh8ZK+ag9l244Vqxji3r6wgz9YBf6+vhQEYJZpSjqWFPg9gg=="
-	crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
 <sly data-sly-call="${clientlib.all @ categories='akart.components.cart'}" />
 
@@ -21,22 +18,38 @@
 							</div>
 							<div class="product-details">
 								<h3 class="product-name">{{prodName}}</h3>
-								<p class="product-price">₹{{prodPrice}}</p>
-								<p class="product-id hide">{{prodId}}</p>
+								<div class="">
+									<span class="product-mrpprice currency-inr">{{prodMrpPrice}}</span>
+									<span class="product-price currency-inr">{{prodPrice}}</span>
+									<span class="product-offer">{{prodOffer}}% Off</span>
+									<span class="product-id hide">{{prodId}}</span>
+								</div>
+								<div class="click-actions">
+									<span class="highlight-item save-for-later-item">Save for later</span>
+									<span class="highlight-item remove-cart-item">Remove</span>
+								</div>
 							</div>
 						</div>
 						<div class="action-buttons">
-								<div class="add-to-cart-button">								
-									<button class="cart-button" onclick="decrementCart(this, event)" {{#ifvalue itemCount value="1"}}disabled{{/ifvalue}}>-</button>
-									<span>{{itemCount}}</span>
-									<button class="cart-button" onclick="incrementCart(this, event)" {{#ifvalue itemCount value="10"}}disabled{{/ifvalue}}>+</button>
+							{{#ifvalue isInStock value=false}}
+								<span class="item-outofstock">
+									Out of stock
+								</span>
+							{{/ifvalue}}
+							{{#ifvalue isInStock value=true}}
+								<div class="add-to-cart-button">
+									<button class="minus-button" onclick="decrementCart(this, event)" {{#ifvalue itemCount value="1"}}disabled{{/ifvalue}}>-</button>
+									<span class="item-count" style="padding: 10px;">{{itemCount}}</span>
+									<button class="plus-button" onclick="incrementCart(this, event)" {{#ifvalue itemCount value="10"}}disabled{{/ifvalue}}>+</button>
 								</div>
-							<div class="delete-product">
-								<button class="remove-item-button">Remove</button>
-							</div>
+							{{/ifvalue}}
 						</div>
-						<div class="item-price currency-inr">{{prodPrice}}</div>
-						<div class="items-total-price currency-inr">{{multiply prodPrice itemCount}}</div>
+						<div class="items-price">
+							{{#ifvalue isInStock value=true}}
+								<div class="item-price currency-inr hide">{{prodPrice}}</div> 
+								<div class="items-total-price currency-inr">{{multiply prodPrice itemCount}}</div>
+							{{/ifvalue}}
+						</div>
 					</div>
 				{{/each}}
 			</div>
@@ -55,8 +68,66 @@
 						<td class="plain-text">Total</td>
 						<td class="total-amount currency-inr">10000</td>
 					</tr>
-				</div>
+				</table>
+				<span class="save-message"></span>
 			</div>
 		</div>
 	</script>
+</div>
+
+<hr class="separator"/>
+
+<h1>Saved For Later</h1>
+<div id="saved-items">
+    <!-- Cart items to show here in li-->
+    <script id="saved-items-template" type="text/handlebars-template">
+        <div class="content-wrapper">
+            <div class="saved-items">
+                <div class="saved-item">
+                    {{#each this}}
+                        <div class="product">
+                            <div class="product-info">
+                                <div class="product-image">
+                                    <img src="{{prodImagePath}}" alt="{{prodName}}">
+                                </div>
+                                <div class="product-details">
+                                    <h3 class="product-name">{{prodName}}</h3>
+                                    <div class="">
+                                        <span class="product-mrpprice currency-inr">{{prodMrpPrice}}</span>
+                                        <span class="product-price currency-inr">{{prodPrice}}</span>
+                                        <span class="product-offer">{{prodOffer}}% Off</span>
+                                        <span class="product-id hide">{{prodId}}</span>
+                                    </div>
+                                    <div class="click-actions">
+                                        <span class="highlight-item save-for-later-item">Save for later</span>
+                                        <span class="highlight-item remove-cart-item">Remove</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="action-buttons">
+                                {{#ifvalue isInStock value=false}}
+                                    <span class="item-outofstock">
+                                        Out of stock
+                                    </span>
+                                {{/ifvalue}}
+                                {{#ifvalue isInStock value=true}}
+                                    <div class="add-to-cart-button">
+                                        <button class="minus-button" onclick="decrementCart(this, event)" {{#ifvalue itemCount value="1"}}disabled{{/ifvalue}}>-</button>
+                                        <span class="item-count" style="padding: 10px;">{{itemCount}}</span>
+                                        <button class="plus-button" onclick="incrementCart(this, event)" {{#ifvalue itemCount value="10"}}disabled{{/ifvalue}}>+</button>
+                                    </div>
+                                {{/ifvalue}}
+                            </div>
+                            <div class="items-price">
+                                {{#ifvalue isInStock value=true}}
+                                    <div class="item-price currency-inr hide">{{prodPrice}}</div> 
+                                    <div class="items-total-price currency-inr">{{multiply prodPrice itemCount}}</div>
+                                {{/ifvalue}}
+                            </div>
+                        </div>
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </script>
 </div>
