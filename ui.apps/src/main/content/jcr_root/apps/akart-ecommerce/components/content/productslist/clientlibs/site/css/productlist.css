@@ -70,12 +70,12 @@
 }
 
 .product-price {
-    padding: 5px;
+    /* padding: 5px; */
     font-weight: bold;
 }
 
 .product-mrpprice {
-    padding: 5px;
+    /* padding: 5px; */
     color: #878787;
     text-decoration: line-through;
 }

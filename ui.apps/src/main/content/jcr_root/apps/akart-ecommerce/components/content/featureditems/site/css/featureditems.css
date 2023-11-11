@@ -51,7 +51,7 @@
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    /* gap: 5px; */
+    gap: 5px;
     flex-wrap: wrap;
 }
 
@@ -163,7 +163,7 @@
 
     .featured-item {
         flex: 0 0 calc(50% - 10px);
-        min-height: 250px;
+        /* min-height: 250px; */
         scroll-snap-align: none;
     }
 
