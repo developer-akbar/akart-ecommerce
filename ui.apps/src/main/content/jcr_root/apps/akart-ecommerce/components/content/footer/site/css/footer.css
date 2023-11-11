@@ -1,0 +1,36 @@
+
+
+footer {
+    min-height: 50px;
+    background-color: #213343;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+.footer-social-links {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+a .fa-brands {
+    border: 1px solid;
+    padding: 5px;
+    border-radius: 8px;
+    border-color: aqua;
+}
+
+a .fa-brands:hover {
+    background-color: white;
+    color: black;
+    font-weight: 900;
+    border-color: transparent;
+}
+
+.footer-copyright {
+    padding: 10px;
+}

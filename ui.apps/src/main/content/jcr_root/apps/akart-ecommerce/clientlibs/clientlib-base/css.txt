@@ -1,5 +1,5 @@
 #base=css
 
 global.css
-bootstrap.min.css
+#bootstrap.min.css
 addproduct.css
