@@ -45,7 +45,6 @@ a {
 .product-price {
     padding: 5px;
     font-weight: bold;
-    font-size: 24px;
 }
 
 .product-mrpprice {
@@ -67,6 +66,10 @@ a {
 }
 
 @media (max-width: 760px) {
+    * {
+        font-size: 1rem;
+    }
+
     .hero-image {
         min-height: 200px;
         background-size: cover;
