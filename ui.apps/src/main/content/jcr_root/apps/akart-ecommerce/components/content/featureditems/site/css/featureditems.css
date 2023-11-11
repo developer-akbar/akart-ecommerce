@@ -9,9 +9,8 @@
 }
 
 .featured-item {
-    /* width: 23%; */
     flex: 0 0 23%;
-    min-height: 300px;
+    max-height: 300px;
     background-color: white;
     padding: 20px 0px 15px;
     border-radius: 5px;
@@ -76,7 +75,7 @@
 
 .category-item-content {
     display: flex;
-    align-items: center;
+    align-items: stretch;
     justify-content: flex-start;
     flex-wrap: nowrap;
     grid-gap: 20px;
@@ -164,7 +163,7 @@
 
     .featured-item {
         flex: 0 0 calc(50% - 10px);
-        min-height: 300px;
+        /* min-height: 250px; */
         scroll-snap-align: none;
     }
 
