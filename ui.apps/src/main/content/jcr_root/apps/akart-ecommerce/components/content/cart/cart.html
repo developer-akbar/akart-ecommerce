@@ -4,130 +4,179 @@
 <sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
 <sly data-sly-call="${template.placeholder @ isEmpty=true}"></sly>
 
-<h1>Your Shopping Cart</h1>
-<div id="cart-items">
-	<!-- Cart items to show here in li-->
-	<script id="cart-template" type="text/handlebars-template">
-		<div class="cart-wrapper">
-			<div class="cart-items-wrapper">
-				{{#each this}}
-					<div class="product">
-						<div class="product-info">
+<section class="cart-wrapper">
+	<h1>Your Shopping Cart</h1>
+	<div class="cart-items-wrapper">
+		<div class="test">
+			<div id="cart-items">
+				<!-- Cart items to show here in li-->
+				<script id="cart-template" type="text/handlebars-template">
+					{{#each this}}
+						<div class="product">
 							<div class="product-image">
-								<img src="{{prodImagePath}}" alt="{{prodName}}">
-							</div>
-							<div class="product-details">
-								<h3 class="product-name">{{prodName}}</h3>
-								<div class="">
-									<span class="product-mrpprice currency-inr">{{prodMrpPrice}}</span>
-									<span class="product-price currency-inr">{{prodPrice}}</span>
-									<span class="product-offer">{{prodOffer}}% Off</span>
-									<span class="product-id hide">{{prodId}}</span>
-								</div>
-								<div class="click-actions">
-									<span class="highlight-item save-for-later-item">Save for later</span>
-									<span class="highlight-item remove-cart-item">Remove</span>
+								<!-- <img src="{{prodImagePath}}" alt="{{prodName}}"> -->
+								<div class="featured-image"
+									style="background-image: url('{{prodImagePath}}');">
 								</div>
 							</div>
-						</div>
-						<div class="action-buttons">
-							{{#ifvalue isInStock value=false}}
-								<span class="item-outofstock">
-									Out of stock
-								</span>
-							{{/ifvalue}}
-							{{#ifvalue isInStock value=true}}
-								<div class="add-to-cart-button">
-									<button class="minus-button" onclick="decrementCart(this, event)" {{#ifvalue itemCount value="1"}}disabled{{/ifvalue}}>-</button>
-									<span class="item-count" style="padding: 10px;">{{itemCount}}</span>
-									<button class="plus-button" onclick="incrementCart(this, event)" {{#ifvalue itemCount value="10"}}disabled{{/ifvalue}}>+</button>
+							<div class="product-info">
+								<div class="product-details">
+									<h3 class="product-name">{{prodName}}</h3>
+									<div class="price-details">
+										<span class="product-mrpprice currency-inr">{{prodMrpPrice}}</span>
+										<span class="product-price currency-inr">{{prodPrice}}</span>
+										<span class="product-offer">{{prodOffer}}% Off</span>
+										<span class="product-id" hidden>{{prodId}}</span>
+									</div>
+									<div class="click-actions">
+										<span class="highlight-item save-for-later-item">Save for later</span>
+										<span class="highlight-item remove-cart-item">Remove</span>
+									</div>
 								</div>
-							{{/ifvalue}}
+								<div class="action-buttons">
+									{{#ifvalue isInStock value=false}}
+										<span class="item-outofstock">
+											Out of stock
+										</span>
+									{{/ifvalue}}
+									{{#ifvalue isInStock value=true}}
+										<div class="add-to-cart-button">
+											<button class="minus-button" onclick="decrementCart(this, event)" {{#ifvalue itemCount value="1"}}disabled{{/ifvalue}}>-</button>
+											<span class="item-count" style="padding: 10px;">{{itemCount}}</span>
+											<button class="plus-button" onclick="incrementCart(this, event)" {{#ifvalue itemCount value="10"}}disabled{{/ifvalue}}>+</button>
+										</div>
+									{{/ifvalue}}
+								</div>
+								<div class="items-price">
+									{{#ifvalue isInStock value=true}}
+										<div class="item-price currency-inr hide">{{prodPrice}}</div> 
+										<div class="items-total-price currency-inr">{{multiply prodPrice itemCount}}</div>
+									{{/ifvalue}}
+								</div>
+							</div>
 						</div>
-						<div class="items-price">
-							{{#ifvalue isInStock value=true}}
-								<div class="item-price currency-inr hide">{{prodPrice}}</div> 
-								<div class="items-total-price currency-inr">{{multiply prodPrice itemCount}}</div>
-							{{/ifvalue}}
-						</div>
-					</div>
-				{{/each}}
+					{{/each}}
+				</script>
 			</div>
-			<div class="cart-price-wrapper">
-				<h3 class="heading">Order Summary</h3>
-				<table class="price-details-table">
-					<tr>
-						<td class="plain-text">Price</td>
-						<td class="cart-price currency-inr">2000</td>
-					</tr>
-					<tr>
-						<td class="plain-text">Discount</td>
-						<td class="discount-price currency-inr">0</td>
-					</tr>
-					<tr>
-						<td class="plain-text">Total</td>
-						<td class="total-amount currency-inr">10000</td>
-					</tr>
-				</table>
-				<span class="save-message"></span>
+			<div class="place-order-container">
+				<a href="#cart-price-wrapper">
+					<div class="full-price">
+						<span><i class="fa-solid fa-circle-info"></i></span>
+						<span class="product-mrpprice cart-price currency-inr"></span>
+						<p class="total-amount currency-inr"></p>
+					</div>
+				</a>
+				<div class="button-placement">
+					<button class="place-order-button">Place Order</button>
+				</div>
 			</div>
 		</div>
-	</script>
-</div>
+		<div id="cart-price-wrapper" class="cart-price-wrapper">
+			<h3 class="heading">Order Summary</h3>
+			<div class="price-details-table">
+				<div class="price-details">
+					<span class="plain-text">Price</span>
+					<span class="cart-price currency-inr"></span>
+				</div>
+				<div class="price-details">
+					<span class="plain-text">Discount</span>
+					<span class="discount-price currency-inr"></span>
+				</div>
+				<div class="price-details total-price">
+					<span class="plain-text">Total</span>
+					<span class="total-amount currency-inr"></span>
+				</div>
+			</div>
+			<span class="save-message"></span>
+			<!-- <table class="price-details-table">
+				<tr>
+					<td class="plain-text">Price</td>
+					<td class="cart-price currency-inr">2000</td>
+				</tr>
+				<tr>
+					<td class="plain-text">Discount</td>
+					<td class="discount-price currency-inr">0</td>
+				</tr>
+				<tr>
+					<td class="plain-text">Total</td>
+					<td class="total-amount currency-inr">10000</td>
+				</tr>
+			</table>
+			<span class="save-message"></span> -->
+		</div>
+	</div>
 
-<hr class="separator"/>
 
-<h1>Saved For Later</h1>
-<div id="saved-items">
-    <!-- Cart items to show here in li-->
-    <script id="saved-items-template" type="text/handlebars-template">
-        <div class="content-wrapper">
-            <div class="saved-items">
-                <div class="saved-item">
-                    {{#each this}}
-                        <div class="product">
-                            <div class="product-info">
-                                <div class="product-image">
-                                    <img src="{{prodImagePath}}" alt="{{prodName}}">
-                                </div>
-                                <div class="product-details">
-                                    <h3 class="product-name">{{prodName}}</h3>
-                                    <div class="">
-                                        <span class="product-mrpprice currency-inr">{{prodMrpPrice}}</span>
-                                        <span class="product-price currency-inr">{{prodPrice}}</span>
-                                        <span class="product-offer">{{prodOffer}}% Off</span>
-                                        <span class="product-id hide">{{prodId}}</span>
-                                    </div>
-                                    <div class="click-actions">
-                                        <span class="highlight-item save-for-later-item">Save for later</span>
-                                        <span class="highlight-item remove-cart-item">Remove</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="action-buttons">
-                                {{#ifvalue isInStock value=false}}
-                                    <span class="item-outofstock">
-                                        Out of stock
-                                    </span>
-                                {{/ifvalue}}
-                                {{#ifvalue isInStock value=true}}
-                                    <div class="add-to-cart-button">
-                                        <button class="minus-button" onclick="decrementCart(this, event)" {{#ifvalue itemCount value="1"}}disabled{{/ifvalue}}>-</button>
-                                        <span class="item-count" style="padding: 10px;">{{itemCount}}</span>
-                                        <button class="plus-button" onclick="incrementCart(this, event)" {{#ifvalue itemCount value="10"}}disabled{{/ifvalue}}>+</button>
-                                    </div>
-                                {{/ifvalue}}
-                            </div>
-                            <div class="items-price">
-                                {{#ifvalue isInStock value=true}}
-                                    <div class="item-price currency-inr hide">{{prodPrice}}</div> 
-                                    <div class="items-total-price currency-inr">{{multiply prodPrice itemCount}}</div>
-                                {{/ifvalue}}
-                            </div>
-                        </div>
-                    {{/each}}
-                </div>
-            </div>
-        </div>
-    </script>
-</div>
+	<div class="saved-items-wrapper">
+		<h1>Saved For Later</h1>
+		<div id="saved-items">
+			<!-- Cart items to show here in li-->
+			<script id="saved-items-template" type="text/handlebars-template">
+				<div class="saved-items">
+					{{#each this}}
+						<div class="product">
+							<div class="product-info">
+								<div class="product-image">
+									<img src="{{prodImagePath}}" alt="{{prodName}}">
+								</div>
+								<div class="product-details">
+									<h3 class="product-name">{{prodName}}</h3>
+									<div class="">
+										<span class="product-mrpprice currency-inr">{{prodMrpPrice}}</span>
+										<span class="product-price currency-inr">{{prodPrice}}</span>
+										<span class="product-offer">{{prodOffer}}% Off</span>
+										<span class="product-id" hidden>{{prodId}}</span>
+									</div>
+									<div class="click-actions">
+										<span class="highlight-item save-for-later-item">Save for later</span>
+										<span class="highlight-item remove-cart-item">Remove</span>
+									</div>
+								</div>
+							</div>
+							<div class="action-buttons">
+								{{#ifvalue isInStock value=false}}
+									<span class="item-outofstock">
+										Out of stock
+									</span>
+								{{/ifvalue}}
+								{{#ifvalue isInStock value=true}}
+									<div class="add-to-cart-button">
+										<button class="minus-button" onclick="decrementCart(this, event)" {{#ifvalue itemCount value="1"}}disabled{{/ifvalue}}>-</button>
+										<span class="item-count" style="padding: 10px;">{{itemCount}}</span>
+										<button class="plus-button" onclick="incrementCart(this, event)" {{#ifvalue itemCount value="10"}}disabled{{/ifvalue}}>+</button>
+									</div>
+								{{/ifvalue}}
+							</div>
+							<div class="items-price">
+								{{#ifvalue isInStock value=true}}
+									<div class="item-price currency-inr hide">{{prodPrice}}</div> 
+									<div class="items-total-price currency-inr">{{multiply prodPrice itemCount}}</div>
+								{{/ifvalue}}
+							</div>
+						</div>
+					{{/each}}
+				</div>
+			</script>
+		</div>
+	</div>
+</section>
+
+<script>
+	document.querySelector('a[href="#cart-price-wrapper"]').addEventListener('click', function (e) {
+		e.preventDefault();
+		// document.querySelector('#cart-price-wrapper').scrollIntoView({ behavior: 'smooth', block: 'start' });
+		window.scrollTo(0, findPosition(document.getElementById("cart-price-wrapper")));
+
+		function findPosition(obj) {
+			const header = document.querySelector(".header");
+			const headerHeight = header.clientHeight;
+			var currenttop = -(headerHeight);
+			if (obj.offsetParent) {
+				do {
+					currenttop += obj.offsetTop;
+				} while ((obj = obj.offsetParent));
+				return [currenttop];
+			}
+		}
+	});
+</script>

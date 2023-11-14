@@ -66,9 +66,6 @@ a {
 }
 
 @media (max-width: 760px) {
-    * {
-        font-size: 1rem;
-    }
 
     .hero-image {
         min-height: 200px;

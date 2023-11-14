@@ -1,6 +1,6 @@
 function incrementCart(thisButton, event) {
     event.stopPropagation();
-    let thisProductId = $(thisButton).parents('.action-buttons').siblings('.product-info').find('.product-details .product-id').text();
+    let thisProductId = $(thisButton).parents('.product').find('.product-info').find('.product-details .product-id').text();
     const existingCartItem = cart.find(item => item.productId == thisProductId);
 
     if (existingCartItem) {
@@ -17,7 +17,7 @@ function incrementCart(thisButton, event) {
 
 function decrementCart(thisButton, event) {
     event.stopPropagation();
-    let thisProductId = $(thisButton).parents('.action-buttons').siblings('.product-info').find('.product-details .product-id').text();
+    let thisProductId = $(thisButton).parents('.product').find('.product-info').find('.product-details .product-id').text();
     const existingCartItem = cart.find(item => item.productId == thisProductId);
 
     if (existingCartItem && existingCartItem.quantity > 0) {
