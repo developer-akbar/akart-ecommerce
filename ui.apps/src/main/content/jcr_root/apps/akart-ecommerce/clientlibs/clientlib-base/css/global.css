@@ -4,6 +4,7 @@
     font-family: Arial, Helvetica, sans-serif;
     border: border-box;
     line-height: 1.6;
+    font-size: 16px;
 }
 
 .border {
@@ -42,13 +43,18 @@ a {
     content: "₹";
 }
 
+.discount-price:before {
+    content: "-₹";
+}
+
 .product-price {
-    /* padding: 5px; */
+    padding: 5px;
     font-weight: bold;
+    font-size: 24px;
 }
 
 .product-mrpprice {
-    /* padding: 5px; */
+    padding: 5px;
     color: #878787;
     text-decoration: line-through;
 }
@@ -66,7 +72,6 @@ a {
 }
 
 @media (max-width: 760px) {
-
     .hero-image {
         min-height: 200px;
         background-size: cover;

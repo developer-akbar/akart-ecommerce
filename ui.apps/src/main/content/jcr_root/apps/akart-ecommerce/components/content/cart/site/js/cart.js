@@ -18,6 +18,9 @@ $(document).on('readystatechange', function (e) {
     if (e.target.readyState === 'complete') {
         if ($(".cart-items-wrapper .product").length <= 0) {
             $(".cart-price-wrapper").remove();
+            $(".place-order-container").remove();
+            // $(".cart-container").css("justify-content", "center");
+            $(".cart-items-wrapper").css("width", "100%");
             $(".cart-items-wrapper").html(`<div class="empty-cart-wrapper"><img src="/content/dam/akart-ecommerce/images/empty-cart.png" class="empty-cart-image"><div class="empty-cart-message">Ohh no! Your cart is empty!!</div></div>`);
         }
     }
@@ -52,8 +55,23 @@ $.ajax({
     }
 });
 
-$(document).on("click", ".remove-cart-item", function (e) {
+$.ajax({
+    url: '/bin/akart/cart?cartItems=' + JSON.stringify(savedItems),
+    type: 'GET',
+    dataType: 'json',
+    contentType: 'application/json',
+    success: function (response) {
+        var source = $("#saved-items-template").html();
+        var template = Handlebars.compile(source);
+        var html = template(response);
+        $("#saved-items").html(html);
+    },
+    error: function () {
 
+    }
+});
+
+$(document).on("click", ".remove-cart-item", function (e) {
     // removing cart item
     var productDiv = $(this).parents(".product");
     productDiv.addClass('product-delete');
@@ -63,18 +81,34 @@ $(document).on("click", ".remove-cart-item", function (e) {
         var thisProductId = productDiv.find('.product-details .product-id').text();
         var currentCart = JSON.parse(localStorage.getItem('cart'));
         var existingCartItem = currentCart.find(item => item.productId == thisProductId);
-        currentCart.splice(existingCartItem, 1);
+        currentCart.splice(currentCart.indexOf(existingCartItem), 1);
         localStorage.setItem('cart', JSON.stringify(currentCart)); // updating cart after removing item
 
         $('#cart-count').text(JSON.parse(localStorage.getItem('cart')).length);
 
         if ($(".cart-items-wrapper .product").length <= 0) {
             $(".cart-price-wrapper").remove();
+            $(".place-order-container").remove();
+            // $(".cart-container").css("justify-content", "center");
+            $(".cart-items-wrapper").css("width", "100%");
             $(".cart-items-wrapper").html(`<div class="empty-cart-wrapper"><img src="/content/dam/akart-ecommerce/images/empty-cart.png" class="empty-cart-image"><div class="empty-cart-message">Ohh no! Your cart is empty!!</div></div>`);
         }
     }, 250);
+});
 
-
+$(document).on("click", ".remove-saved-item", function (e) {
+    // removing cart item
+    var productDiv = $(this).parents(".product");
+    productDiv.addClass('product-delete');
+    setTimeout(function () {
+        productDiv.remove();
+        updateOrderSummary();
+        var thisProductId = productDiv.find('.product-details .product-id').text();
+        var currentSavedItems = JSON.parse(localStorage.getItem('saved-items'));
+        var existingSavedItem = currentSavedItems.find(item => item.productId == thisProductId);
+        currentSavedItems.splice(currentSavedItems.indexOf(existingSavedItem), 1);
+        localStorage.setItem('saved-items', JSON.stringify(currentSavedItems)); // updating saved-items after removing item
+    }, 250);
 });
 
 function updateOrderSummary() {
@@ -97,7 +131,7 @@ function updateOrderSummary() {
 }
 
 // save for later
-$(document).on("click", ".save-for-later-item", function() {
+$(document).on("click", ".save-for-later-item", function () {
     let thisProductId = $(this).parents('.product').find('.product-details .product-id').text();
     let itemQty = $(this).parents('.product').find('.item-count').text();
 
@@ -117,14 +151,60 @@ $(document).on("click", ".save-for-later-item", function() {
         updateOrderSummary();
         var currentCart = JSON.parse(localStorage.getItem('cart'));
         var existingCartItem = currentCart.find(item => item.productId == thisProductId);
-        currentCart.splice(existingCartItem, 1);
+        currentCart.splice(currentCart.indexOf(existingCartItem), 1);
         localStorage.setItem('cart', JSON.stringify(currentCart)); // updating cart after removing item
 
         $('#cart-count').text(JSON.parse(localStorage.getItem('cart')).length);
 
         if ($(".cart-items-wrapper .product").length <= 0) {
             $(".cart-price-wrapper").remove();
+            $(".place-order-container").remove();
+            // $(".cart-container").css("justify-content", "center");
+            $(".cart-items-wrapper").css("width", "100%");
             $(".cart-items-wrapper").html(`<div class="empty-cart-wrapper"><img src="/content/dam/akart-ecommerce/images/empty-cart.png" class="empty-cart-image"><div class="empty-cart-message">Ohh no! Your cart is empty!!</div></div>`);
         }
+
+        /*$.ajax({
+            url: '/bin/akart/cart?cartItems=' + JSON.stringify(savedItems),
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json',
+            success: function (response) {
+                var source = $("#saved-items-template").html();
+                var template = Handlebars.compile(source);
+                var html = template(response);
+                $("#saved-items").html(html);
+            },
+            error: function () {
+        
+            }
+        });*/
+    }, 250);
+});
+
+$(document).on("click", ".move-to-cart", function () {
+    let thisProductId = $(this).parents('.product').find('.product-details .product-id').text();
+    let itemQty = $(this).parents('.product').find('.item-count').text();
+
+    let existingCartItem = cart.find(item => item.productId == thisProductId);
+    if (existingCartItem == undefined) {
+        cart.push({
+            productId: thisProductId,
+            quantity: itemQty == '' ? 1 : itemQty
+        });
+    }
+    localStorage.setItem('cart', JSON.stringify(cart));
+
+    var productDiv = $(this).parents(".product");
+    productDiv.addClass('product-delete');
+    setTimeout(function () {
+        productDiv.remove();
+        updateOrderSummary();
+        var savedItems = JSON.parse(localStorage.getItem('saved-items'));
+        var existingSavedItem = savedItems.find(item => item.productId == thisProductId);
+        savedItems.splice(savedItems.indexOf(existingSavedItem), 1);
+        localStorage.setItem('saved-items', JSON.stringify(savedItems)); // updating saved-items after removing item
+
+        $('#cart-count').text(JSON.parse(localStorage.getItem('cart')).length);
     }, 250);
 });
