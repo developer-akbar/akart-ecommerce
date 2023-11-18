@@ -32,7 +32,7 @@ import com.day.cq.wcm.api.Page;
 
 @Model(adaptables = { Resource.class,
 		SlingHttpServletRequest.class }, defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class ProductsListModel {
+public class FeaturedItemsModel {
 
 	private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
@@ -53,8 +53,6 @@ public class ProductsListModel {
 	
 	@ValueMapValue
 	private String buyNowCTALabel;
-	
-	private List<Map<String, String>> productList;
 
 	Session jcrSession;
 	QueryManager queryManager;
@@ -91,14 +89,14 @@ public class ProductsListModel {
 				return productDetailsMap;
 			}
 		} catch (Exception e) {
-			LOGGER.error("Exception while getting product details with id: ", e);
+			LOGGER.error("Exception while getting product details: ", e);
 		}
 
 		return productDetailsMap;
 	}
 
 	public List<Map<String, String>> getProductList() {
-		productList = new ArrayList<>();
+		List<Map<String, String>> productList = new ArrayList<>();
 
 		try {
 			jcrSession = resolver.adaptTo(Session.class);
@@ -115,7 +113,6 @@ public class ProductsListModel {
 					Node resultNode = resultNodes.nextNode();
 					Page productPage = resolver.getResource(resultNode.getPath()).adaptTo(Page.class);
 					Node productDetailsNode = AKartUtils.getProductDetailsNode(resultNode);
-					LOGGER.debug("Product Details Node: {}", productDetailsNode.getPath());
 
 					Map<String, String> productDetailsMap = new HashMap<>();
 					PropertyIterator propertyItr = productDetailsNode.getProperties();
@@ -131,7 +128,6 @@ public class ProductsListModel {
 									: "0");
 					productDetailsMap.put("isInStock", prodsInStock >= 1 ? "true" : "false");
 					
-					// check null pointer exception for getter properties
 					int prodOffer = Math.round(((Float.parseFloat(productDetailsMap.get("prodMrpPrice"))
 							- Float.parseFloat(productDetailsMap.get("prodPrice")))
 							/ Float.parseFloat(productDetailsMap.get("prodMrpPrice"))) * 100);
@@ -141,7 +137,6 @@ public class ProductsListModel {
 					productList.add(productDetailsMap);
 				}
 				LOGGER.debug("Product list: {}", Arrays.asList(productList));
-				
 				return productList;
 			}
 		} catch (Exception e) {
@@ -149,23 +144,6 @@ public class ProductsListModel {
 		}
 
 		return productList;
-	}
-	
-	public Map<String, List<Map<String, String>>> getCategoryWiseList() {
-		Map<String, List<Map<String, String>>> categoryMap = new HashMap<>();
-		
-		for(Map<String, String> product : productList) {
-			String productCategory = product.get("prodCategory");
-			
-			if(!categoryMap.containsKey(productCategory)) {
-				categoryMap.put(productCategory, new ArrayList<>());
-			}
-			
-			categoryMap.get(productCategory).add(product);
-		}
-		LOGGER.debug("Category Map: {}", categoryMap.toString());
-		
-		return categoryMap;
 	}
 	
 	public boolean isMiscAdminPage() {

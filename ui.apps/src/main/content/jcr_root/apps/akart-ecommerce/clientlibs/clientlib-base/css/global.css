@@ -1,5 +1,83 @@
 /* Global styles */
-body {
+* {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    border: border-box;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.border {
+    border: 2px solid transparent;
+}
+
+.border:hover {
+    border: 2px solid white;
+    padding: 3px;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0, 0.5);
+    z-index: 999;
+}
+
+.hero-image {
+    min-height: 400px;
+    background-size: cover;
+}
+
+.currency-inr:before {
+    position: relative;
+    top: 0;
+    content: "₹";
+}
+
+.discount-price:before {
+    content: "-₹";
+}
+
+.product-price {
+    padding: 5px;
+    font-weight: bold;
+}
+
+.product-mrpprice {
+    padding: 5px;
+    color: #878787;
+    text-decoration: line-through;
+}
+
+.product-offer {
+    color: #388e3c;
+    letter-spacing: -.2px;
+    font-size: .7rem;
+    font-weight: 700;
+}
+
+#cart-count {
+    position: relative;
+    top: -7px;
+}
+
+@media (max-width: 760px) {
+    .hero-image {
+        min-height: 200px;
+        background-size: cover;
+    }
+}
+
+/* body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -40,7 +118,7 @@ main {
 }
 
 div[class*='cmp-akart-form-'] {
-    /*margin-bottom: 20px;*/
+    
     padding: 20px;
     border-radius: 5px;
     display: grid;
@@ -69,7 +147,7 @@ textarea {
 }
 
 .featured-products {
-    /* display: grid; */
+    
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 20px;
 }
@@ -84,7 +162,7 @@ button {
     font-size: 16px;
     border-radius: 5px;
     box-shadow: 0 0px 1px rgb(0, 0, 0.1);
-    /* transition: background-color 0.2s ease-in-out; */
+    
 }
 
 button:hover {
@@ -95,14 +173,14 @@ button:focus {
     outline: none;
 }
 
-button:active{
+button:active {
     box-shadow: 7px 6px 28px 1px rgba(0, 0, 0, 0.24);
     background-color: #f7d705;
     transform: translateY(4px);
 }
 
 button[disabled] {
-    cursor: not-allowed;
+    cursor: not-allowed !important;
     background-color: #c2c2c2;
 }
 
@@ -127,10 +205,10 @@ footer {
 .cmp-form-button__msg-formservererror {
 	display: block !important;
     color: red;
-}
+} */
 
 /* Responsive Styles */
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
     nav ul li {
         display: block;
         margin: 10px 0;
@@ -167,4 +245,4 @@ footer {
     background-color: blue;
     border-radius: 50%;
     padding: 4px 8px
-}
+} */

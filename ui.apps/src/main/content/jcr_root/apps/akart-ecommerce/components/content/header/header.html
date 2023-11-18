@@ -1,12 +1,36 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
+<sly data-sly-call="${template.placeholder @ isEmpty=true}"></sly>
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientlib.all @ categories='akart.components.header'}" />
+
 <header>
-    <h1>Welcome to My E-Commerce Store</h1>
-    <nav>
-        <ul>
-            <li><a class="menu-home" href="#">Home</a></li>
-            <li><a class="menu-shop" href="#">Shop</a></li>
-            <li><a class="menu-contact" href="#">Contact</a></li>
-            <li><a class="menu-cart" href="/content/akart-ecommerce/en-us/pages/cart.html"><i class="fa fa-shopping-cart"></i> Cart <sup id="cart-count">0</sup></a></li>
-        </ul>
-    </nav>
+    <!-- Hamburger for mobile screen -->
+    <div class="nav-toggle" id="nav-toggle">
+        <i class="fa-solid fa-bars"></i>
+    </div>
+    <div class="navbar">
+        <div class="nav-logo">
+            <div class="logo">
+                <a class="logo-name" href="/content/akart-ecommerce/en-us/home.html">AKart</a>
+            </div>
+        </div>
+        <div class="nav-menu">
+            <a class="nav-about border" href="#">About Us</a>
+            <a class="nav-products border" href="/content/akart-ecommerce/en-us/products.html">Products</a>
+            <a class="nav-contact border" href="#">Contact Us</a>
+        </div>
+        <div class="nav-profile">
+            <a class="nav-login border" href="#">Login</a>
+            <a class="nav-signup border" href="#">Signup</a>
+        </div>
+        <div class="nav-cart">
+            <a class="menu-cart border" href="/content/akart-ecommerce/en-us/pages/cart.html">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-text">Cart </span>
+                <sup id="cart-count">0</sup>
+            </a>
+        </div>
+    </div>
 </header>
+<div class="overlay" id="overlay"></div>

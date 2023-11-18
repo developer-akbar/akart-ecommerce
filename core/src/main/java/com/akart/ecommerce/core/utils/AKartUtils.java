@@ -120,7 +120,7 @@ public class AKartUtils {
 				prodDetailsNode = currentPageNode.getNode(Constants.PROD_DETAILS_NODE);
 			}
 		} catch(Exception e) {
-			LOGGER.error("Exception while getting data_pim node:: ", e);
+			LOGGER.error("Exception while getting product_details node:: ", e);
 		}
 		return prodDetailsNode;
 	}

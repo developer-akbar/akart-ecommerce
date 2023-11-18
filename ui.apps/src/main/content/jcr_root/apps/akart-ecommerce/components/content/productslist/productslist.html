@@ -25,28 +25,33 @@
                         </div>
                         <div class="product-details">
                             <h3>${productMap.prodName}</h3>
-                            <p class="product-price currency-inr">${productMap.prodPrice}</p>
-                            <p class="product-id hide">${productMap.prodId}</p>
+                            <div class="">
+                                <span class="product-mrpprice currency-inr">${productMap.prodMrpPrice}</span>
+                                <span class="product-price currency-inr">${productMap.prodPrice}</span>
+                                <span class="product-offer">${productMap.prodOffer}% Off</span>
+                                <span class="product-id hide">${productMap.prodId}</span>
+                                <h5 data-sly-test="${model.isMiscAdminPage}" class="stock-status">In stock: ${productMap.prodsInStock ? productMap.prodsInStock : 0}</h5>
+                            </div>
                         </div>
                     </a>
                 </div>
                 <div class="action-buttons">
                     <sly data-sly-test="${model.isMiscAdminPage}">
-                        <div class="edit-product">
+                        <div class="admin-edit-product">
                             <button class="edit-product-button">Edit</button>
                         </div>
-                        <div class="delete-product">
+                        <div class="admin-delete-product">
                             <button class="delete-product-button">Delete</button>
                         </div>
                     </sly>
                     <sly data-sly-test="${!model.isMiscAdminPage}">
                         <div class="edit-product">
                             <button class="add-to-cart-button">${model.addToCartCTALabel}</button>
-                            <div class="cart-decr-incr-buttons" style="display: none;">
+                            <!-- <div class="cart-decr-incr-buttons" style="display: none;">
                                 <button class="cart-button-decr" onclick="decrementCart(this, event)">-</button>
                                 <span class="item-count"></span>
                                 <button class="cart-button-incr" onclick="incrementCart(this, event)">+</button>
-                            </div>
+                            </div> -->
                         </div>
                         <div class="delete-product">
                             <button class="buy-now-button">${model.buyNowCTALabel}</button>
