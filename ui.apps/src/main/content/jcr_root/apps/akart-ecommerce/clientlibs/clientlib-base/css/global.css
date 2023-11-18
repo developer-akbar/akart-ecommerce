@@ -50,7 +50,6 @@ a {
 .product-price {
     padding: 5px;
     font-weight: bold;
-    font-size: 24px;
 }
 
 .product-mrpprice {
@@ -61,8 +60,8 @@ a {
 
 .product-offer {
     color: #388e3c;
-    font-size: 13px;
     letter-spacing: -.2px;
+    font-size: .7rem;
     font-weight: 700;
 }
 
