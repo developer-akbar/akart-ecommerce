@@ -1,27 +1,20 @@
-document.addEventListener('DOMContentLoaded', function () {
-    const header = document.querySelector(".header");
-    const headerHeight = header.clientHeight;
-    document.body.style.paddingTop = headerHeight + 'px';
+const primaryNav = document.querySelector('.primary-navigation');
+const navToggle = document.querySelector('.mobile-nav-toggle');
 
-    const navToggle = document.getElementById('nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
-    const overlay = document.querySelector('.overlay');
+navToggle.addEventListener('click', function () {
+    primaryNav.classList.toggle('active');
 
-    navToggle.addEventListener('click', function () {
-        navMenu.classList.toggle('active');
+    document.body.style.overflow = 'hidden';
+
+    if (primaryNav.classList.contains('active')) {
         document.body.style.overflow = 'hidden';
-        overlay.style.display = navMenu.classList.contains('active') ? 'block' : 'none';
-
-        if (navMenu.classList.contains('active')) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = '';
-        }
-    });
-
-    overlay.addEventListener('click', function () {
-        navMenu.classList.remove('active');
+        navToggle.setAttribute("aria-expanded", "true");
+        document.querySelector('.fa-bars').style.display = 'none'
+        document.querySelector('.fa-xmark').style.display = 'block'
+    } else {
         document.body.style.overflow = '';
-        overlay.style.display = 'none';
-    })
+        navToggle.setAttribute("aria-expanded", "false");
+        document.querySelector('.fa-bars').style.display = 'block'
+        document.querySelector('.fa-xmark').style.display = 'none'
+    }
 });
