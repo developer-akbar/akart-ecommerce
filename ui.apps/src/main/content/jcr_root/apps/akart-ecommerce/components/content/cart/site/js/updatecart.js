@@ -1,6 +1,6 @@
 function incrementCart(thisButton, event) {
     event.stopPropagation();
-    let thisProductId = $(thisButton).parents('.action-buttons').siblings('.product-info').find('.product-details .product-id').text();
+    let thisProductId = $(thisButton).parents('.product').find('.product-details .product-id').text();
     const existingCartItem = cart.find(item => item.productId == thisProductId);
 
     if (existingCartItem) {
@@ -17,7 +17,7 @@ function incrementCart(thisButton, event) {
 
 function decrementCart(thisButton, event) {
     event.stopPropagation();
-    let thisProductId = $(thisButton).parents('.action-buttons').siblings('.product-info').find('.product-details .product-id').text();
+    let thisProductId = $(thisButton).parents('.product').find('.product-details .product-id').text();
     const existingCartItem = cart.find(item => item.productId == thisProductId);
 
     if (existingCartItem && existingCartItem.quantity > 0) {
@@ -34,7 +34,9 @@ function updateCart(thisButton, item) {
     // Update the cart buttons
     if (item && item.quantity > 0) {
         thisButton.html(`<button class="minus-button" onclick="decrementCart(this, event)" ${item.quantity === 1 ? 'disabled' : ''}>-</button><span class="item-count" style="padding: 10px;">${item.quantity}</span><button class="plus-button" onclick="incrementCart(this, event)" ${item.quantity === 10 ? 'disabled' : ''}>+</button>`);
-        thisButton.parent().siblings('.items-price').find('.items-total-price').text(item.quantity * thisButton.parent().siblings('.items-price').find('.item-price').text())
+        //thisButton.parent().siblings('.items-price').find('.items-total-price').text(item.quantity * thisButton.parent().siblings('.items-price').find('.item-price').text())
+        thisButton.parents('.product').find('.item-price').text(item.quantity * thisButton.parents('.product').find('.product-mrpprice').text());
+        thisButton.parents('.product').find('.items-total-price').text(item.quantity * thisButton.parents('.product').find('.product-price').text());
     } else {
         thisButton.text(`Add to Cart`);
     }
@@ -44,14 +46,14 @@ function updateCart(thisButton, item) {
     }
 
     var totalMrpPrice = 0;
-    $(".product-mrpprice").each(function () {
+    $("#cart-items .product-mrpprice").each(function () {
         var itemQty = $(this).parents('.product').find('.item-count').text();
         totalMrpPrice = eval(totalMrpPrice + Number.parseInt($(this).text() * itemQty));
     });
     $(".cart-price").text(totalMrpPrice);
 
     var totalCart = 0;
-    $(".items-total-price").each(function () {
+    $("#cart-items .items-total-price").each(function () {
         totalCart = eval(totalCart + Number.parseInt($(this).text()));
     });
 

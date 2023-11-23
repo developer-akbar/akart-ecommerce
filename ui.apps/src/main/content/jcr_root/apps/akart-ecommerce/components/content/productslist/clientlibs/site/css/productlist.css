@@ -64,22 +64,21 @@
     padding: 10px;
 }
 
-
 .items-total-price {
     font-weight: bold;
     font-size: 28px;
 }
 
 .product-price {
-    padding: 5px;
+    /* padding: 5px; */
     font-weight: bold;
-    font-size: 24px;
 }
 
 .product-mrpprice {
-    padding: 5px;
+    /* padding: 5px; */
     color: #878787;
     text-decoration: line-through;
+    font-size: 0.85rem;
 }
 
 .product-delete {

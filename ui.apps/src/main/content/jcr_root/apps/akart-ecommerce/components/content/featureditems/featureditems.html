@@ -1,0 +1,73 @@
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientlib.all @ categories='akart.components.featureditems'}" />
+
+<sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
+<sly data-sly-call="${template.placeholder @ isEmpty=true}"></sly>
+
+<sly data-sly-use.model="com.akart.ecommerce.core.models.ProductsListModel" />
+<sly data-sly-test.productList="${model.productList}" />
+
+<!-- All products as list -->
+<!-- <div class="featured-items-section">
+	<sly data-sly-list.productMap="${productList}">
+		<div class="featured-item">
+			<div class="featured-content">
+				<h2>${productMap.prodCategory}</h2>
+				<a href="${productMap.productPath}" title="${productMap.prodName}">
+					<div class="featured-image"
+						style="background-image: url('${productMap.prodImagePath @ context='html'}');"></div>
+					<div class="featured-details">
+						<h3 class="wrap-text">${productMap.prodName}</h3>
+						<div class="price-details">
+							<span class="product-mrpprice currency-inr">${productMap.prodMrpPrice}</span>
+							<div class="product-price currency-inr">${productMap.prodPrice}</div>
+							<span class="product-offer">${productMap.prodOffer}% Off</span>
+							<span class="product-id" hidden>${productMap.prodId}</span>
+						</div>
+					</div>
+				</a>
+			</div>
+		</div>
+	</sly>
+</div> -->
+
+<!-- Category wise products -->
+<sly data-sly-test.categoryWiseMap="${model.categoryWiseList}" />
+<section class="category-section">
+	<sly data-sly-list="${categoryWiseMap}">
+		<div class="category-item">
+			<div class="category-title">
+				<h3>${item}</h3>
+				<span class="click-for-more"><i class="fa-solid fa-circle-chevron-right"></i></span>
+			</div>
+			<div class="category-item-content">
+				<sly data-sly-list.categoryMap="${categoryWiseMap[item]}">
+					<div class="featured-item">
+						<div class="featured-content">
+							<a href="${categoryMap.productPath}" title="${categoryMap.prodName}">
+								<div class="featured-image"
+									style="background-image: url('${categoryMap.prodImagePath @ context='html'}');">
+								</div>
+								<div class="featured-details">
+									<h3 class="featured-item-title">${categoryMap.prodName}</h3>
+									<div class="price-details">
+										<span class="product-mrpprice currency-inr">${categoryMap.prodMrpPrice}</span>
+										<span class="product-price currency-inr">${categoryMap.prodPrice}</span>
+										<span class="product-offer">${categoryMap.prodOffer}% Off</span>
+										<span class="product-id" hidden>${categoryMap.prodId}</span>
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</sly>
+			</div>
+			<button class="prev-button" title="Previous"><i class="fa-solid fa-chevron-left"></i></button>
+			<button class="next-button" title="Next"><i class="fa-solid fa-chevron-right"></i></button>
+		</div>
+	</sly>
+</section>
+
+<script>
+	
+</script>

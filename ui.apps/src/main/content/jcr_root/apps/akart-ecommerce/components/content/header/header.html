@@ -1,12 +1,41 @@
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-<header>
-    <h1>Welcome to My E-Commerce Store</h1>
-    <nav>
-        <ul>
-            <li><a class="menu-home" href="#">Home</a></li>
-            <li><a class="menu-shop" href="#">Shop</a></li>
-            <li><a class="menu-contact" href="#">Contact</a></li>
-            <li><a class="menu-cart" href="/content/akart-ecommerce/en-us/pages/cart.html"><i class="fa fa-shopping-cart"></i> Cart <sup id="cart-count">0</sup></a></li>
-        </ul>
-    </nav>
+<!-- <sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>
+<sly data-sly-call="${template.placeholder @ isEmpty=true}"></sly> -->
+
+<sly data-sly-use.clientlib="/libs/granite/sightly/templates/clientlib.html" />
+<sly data-sly-call="${clientlib.css @ categories='akart.components.header'}" />
+
+<header class="primary-header flex">
+    <div class="nav-logo">
+        <div class="logo">
+            <a class="logo-name" href="/content/akart-ecommerce/en-us/home.html">AKart</a>
+        </div>
+    </div>
+    
+    <ul id="primary-navigation" class="primary-navigation flex" data-visible="false">
+        <li class="active"><a class="nav-about" href="#">Home</a></li>
+        <li><a class="" href="/content/akart-ecommerce/en-us/pages/products.html">Products</a></li>
+        <li><a class="" href="#">About Us</a></li>
+        <li><a class="" href="#">Contact us</a></li>
+    </ul>
+    
+    <ul class="secondary-navigation flex">
+        <li class="user-login">
+            <a href="#">
+                <i class="fa-solid fa-user"></i><span class="hide-label">Login</span>
+            </a>
+        </li>
+        <li class="user-cart">
+            <a href="/content/akart-ecommerce/en-us/pages/cart.html">
+                <i class="fa-solid fa-cart-shopping"></i><span class="hide-label">Cart</span>
+            </a>
+        </li>
+
+        <span class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark" style="display: none" ;></i>
+        </span>
+    </ul>
+        
 </header>
+
+<sly data-sly-call="${clientlib.js @ categories='akart.components.header'}" />
