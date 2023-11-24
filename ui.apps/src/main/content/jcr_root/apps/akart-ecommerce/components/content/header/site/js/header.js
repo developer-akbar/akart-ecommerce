@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // updating cart count
+    const cart = JSON.parse(localStorage.getItem('cart')) ?? [];
+    document.querySelector(".fa-cart-shopping").setAttribute("data-cart-count", cart.length);
+
     const header = document.querySelector(".primary-header");
-    const headerHeight = header.clientHeight;
+    const headerHeight = header.getBoundingClientRect().height;
     document.body.style.paddingTop = headerHeight + 'px';
 });
 

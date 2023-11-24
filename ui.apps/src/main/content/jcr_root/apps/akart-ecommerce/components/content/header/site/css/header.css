@@ -159,6 +159,27 @@ a.logo-name {
     }
 } */
 
+.fa-cart-shopping {
+  position: relative;
+}
+
+.fa-cart-shopping::after {
+  content: attr(data-cart-count);
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: .8rem;
+  height: 25px;
+  width: 25px;
+  top: -80%;
+  left: 7px;
+  border: 2px solid transparent;
+  border-radius: 50%;
+  background-color: red;
+  box-sizing: border-box;
+}
+
 .header {
     position: sticky;
     top: 0;
@@ -177,7 +198,7 @@ a.logo-name {
   
   .nav-logo {
     position: relative;
-    margin: 1rem;
+    margin-inline-start: 1rem;
     overflow: hidden;
   }
   
