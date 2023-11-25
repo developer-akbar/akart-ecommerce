@@ -14,53 +14,57 @@
 
     <sly data-sly-test.productList="${model.productList}" />
 
-    <h2>${model.sectionHeading}</h2>
-    <div class="product-list">
-        <sly data-sly-list.productMap="${productList}">
-            <div class="product">
-                <div class="product-info">
-                    <a href="${productMap.productPath}" class="product-link">
-                        <div class="product-image">
-                            <img src="${productMap.prodImagePath}" alt="${productMap.prodName}" />
+    <div class="content-wrapper flex">
+        <div class="filters-wrapper">
+            <h3 class="section-title margin-around">Filters</h3>
+        </div>
+    
+        <div class="product-list-wrapper">
+            <h3 class="section-title margin-around">${model.sectionHeading}</h3>
+            <sly data-sly-list.productMap="${productList}">
+                <div class="product flex">
+                    <div class="product-image">
+                        <div class="featured-image"
+                            style="background-image: url('${productMap.prodImagePath @context='html'}');">
                         </div>
-                        <div class="product-details">
-                            <h3>${productMap.prodName}</h3>
-                            <div class="">
-                                <span class="product-mrpprice currency-inr">${productMap.prodMrpPrice}</span>
-                                <span class="product-price currency-inr">${productMap.prodPrice}</span>
-                                <span class="product-offer">${productMap.prodOffer}% Off</span>
-                                <span class="product-id hide">${productMap.prodId}</span>
-                                <h5 data-sly-test="${model.isMiscAdminPage}" class="stock-status">In stock: ${productMap.prodsInStock ? productMap.prodsInStock : 0}</h5>
+                    </div>
+                    <div class="product-details">
+                        <h3 class="product-name">${productMap.prodName}</h3>
+                        <div class="price-details"> 
+                            <span class="product-mrpprice currency-inr">${productMap.prodMrpPrice}</span>
+                            <span class="product-price currency-inr">${productMap.prodPrice}</span>
+                            <span class="product-offer">${productMap.prodOffer}% Off</span>
+                            <span class="product-id" hidden>${productMap.prodId}</span>
+                        </div>
+                    </div>
+                    <div class="action-buttons flex">
+                        <sly data-sly-test="${model.isMiscAdminPage}">
+                            <div class="admin-edit-product">
+                                <button class="edit-product-button">Edit</button>
                             </div>
-                        </div>
-                    </a>
+                            <div class="admin-delete-product">
+                                <button class="delete-product-button">Delete</button>
+                            </div>
+                        </sly>
+                        <sly data-sly-test="${!model.isMiscAdminPage}">
+                            <span data-sly-test="${!productMap.isInStock}" class="item-outofstock">
+                                Out of stock
+                            </span>
+                            <sly data-sly-test="${productMap.isInStock}">
+                                <div class="edit-product">
+                                    <button class="add-to-cart add-to-cart-button">${model.addToCartCTALabel}</button>
+                                </div>
+                                <div class="delete-product">
+                                    <button class="buy-now-button">${model.buyNowCTALabel}</button>
+                                </div>
+                            </sly>
+                        </sly>
+                    </div>
                 </div>
-                <div class="action-buttons">
-                    <sly data-sly-test="${model.isMiscAdminPage}">
-                        <div class="admin-edit-product">
-                            <button class="edit-product-button">Edit</button>
-                        </div>
-                        <div class="admin-delete-product">
-                            <button class="delete-product-button">Delete</button>
-                        </div>
-                    </sly>
-                    <sly data-sly-test="${!model.isMiscAdminPage}">
-                        <div class="edit-product">
-                            <button class="add-to-cart-button">${model.addToCartCTALabel}</button>
-                            <!-- <div class="cart-decr-incr-buttons" style="display: none;">
-                                <button class="cart-button-decr" onclick="decrementCart(this, event)">-</button>
-                                <span class="item-count"></span>
-                                <button class="cart-button-incr" onclick="incrementCart(this, event)">+</button>
-                            </div> -->
-                        </div>
-                        <div class="delete-product">
-                            <button class="buy-now-button">${model.buyNowCTALabel}</button>
-                        </div>
-                    </sly>
-                </div>
-            </div>
-        </sly>
+            </sly>
+        </div>
     </div>
+    
 
 
     <sly data-sly-use.template="core/wcm/components/commons/v1/templates.html"></sly>

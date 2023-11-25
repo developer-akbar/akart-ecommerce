@@ -34,7 +34,6 @@ function updateCart(thisButton, item) {
     // Update the cart buttons
     if (item && item.quantity > 0) {
         thisButton.html(`<button class="minus-button" onclick="decrementCart(this, event)" ${item.quantity === 1 ? 'disabled' : ''}>-</button><span class="item-count" style="padding: 10px;">${item.quantity}</span><button class="plus-button" onclick="incrementCart(this, event)" ${item.quantity === 10 ? 'disabled' : ''}>+</button>`);
-        //thisButton.parent().siblings('.items-price').find('.items-total-price').text(item.quantity * thisButton.parent().siblings('.items-price').find('.item-price').text())
         thisButton.parents('.product').find('.item-price').text(item.quantity * thisButton.parents('.product').find('.product-mrpprice').text());
         thisButton.parents('.product').find('.items-total-price').text(item.quantity * thisButton.parents('.product').find('.product-price').text());
     } else {
@@ -65,4 +64,4 @@ function updateCart(thisButton, item) {
     console.log('cart ', cart);
     localStorage.setItem('cart', JSON.stringify(cart));
     $('.data-cart-count').attr("data-cart-count", cart.length); // updating cart items
-}
+//    $('#cart-count').text(cart.length); // updating cart items

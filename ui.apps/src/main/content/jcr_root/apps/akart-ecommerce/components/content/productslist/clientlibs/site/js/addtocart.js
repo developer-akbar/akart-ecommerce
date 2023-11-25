@@ -1,15 +1,10 @@
-//const cart = JSON.parse(localStorage.getItem('cart'));
-const cart = [];
-let savedCartCount = cart != undefined ? cart.length : 0;
-$('#cart-count').text(savedCartCount);
+const cart = JSON.parse(localStorage.getItem('cart')) ?? [];
 
 $(document).on('readystatechange',function(e){
     if(e.target.readyState === 'complete'){
-        $(".product-list .product").find(".product-id").each(function (params) {
+        $(".product-list-wrapper .product").find(".product-id").each(function (params) {
             var thisProductId = $(this).text();
-            console.log('product id: ', thisProductId);
             var existingCartItem = cart.find(item => item.productId == thisProductId);
-            console.log('cart item: ', existingCartItem);
             updateCart1($(this), existingCartItem);
         });
     }
@@ -21,20 +16,17 @@ function updateCart1(thisButton, item) {
     if (item && item.quantity > 0) {
         thisButton.parents('.product').find('.edit-product').addClass('add-to-cart-button');
         thisButton.parents('.product').find('.edit-product').html(`<button class="minus-button" onclick="decrementCart(this, event)">-</button><span class="item-count" style="padding: 10px;">${item.quantity}</span><button class="plus-button" onclick="incrementCart(this, event)" ${item.quantity === 10 ? 'disabled' : ''}>+</button>`);
-        // thisButton.parents('.product').find('.add-to-cart-button').html(`<button class="minus-button" onclick="decrementCart(this, event)">-</button><span class="item-count" style="padding: 10px;">${item.quantity}</span><button class="plus-button" onclick="incrementCart(this, event)">+</button>`);
     } else {
-        thisButton.parents('.product').find('.edit-product').html(`<button class="add-to-cart-button button">Add to Cart</button>`);
+        thisButton.parents('.product').find('.edit-product').html(`<button class="add-to-cart add-to-cart-button button">Add to Cart</button>`);
     }
 
     if (cart.length == 0) {
-        thisButton.parents('.product').find('.edit-product').html(`<button class="add-to-cart-button button">Add to Cart</button>`);
+        thisButton.parents('.product').find('.edit-product').html(`<button class="add-to-cart add-to-cart-button button">Add to Cart</button>`);
     }
 }
 
-//const cart = [];
-
-$(document).on("click", ".add-to-cart-button", function () {
-    let thisProductId = $(this).parents('.action-buttons').siblings('.product-info').find('.product-details .product-id').text();
+$(document).on("click", ".add-to-cart", function () {
+    let thisProductId = $(this).parents('.product').find('.product-details .product-id').text();
 
     let existingCartItem = cart.find(item => item.productId == thisProductId);
     if (existingCartItem) {
@@ -65,7 +57,7 @@ function removeItem(productId) {
 
 function incrementCart(thisButton, event) {
     event.stopPropagation();
-    let thisProductId = $(thisButton).parents('.action-buttons').siblings('.product-info').find('.product-details .product-id').text();
+    let thisProductId = $(thisButton).parents('.product').find('.product-details .product-id').text();
     const existingCartItem = cart.find(item => item.productId == thisProductId);
 
     if (existingCartItem) {
@@ -82,7 +74,7 @@ function incrementCart(thisButton, event) {
 
 function decrementCart(thisButton, event) {
     event.stopPropagation();
-    let thisProductId = $(thisButton).parents('.action-buttons').siblings('.product-info').find('.product-details .product-id').text();
+    let thisProductId = $(thisButton).parents('.product').find('.product-details .product-id').text();
     const existingCartItem = cart.find(item => item.productId == thisProductId);
 
     if (existingCartItem && existingCartItem.quantity > 0) {
@@ -108,13 +100,13 @@ function updateCart(thisButton, item) {
         }
     } else {
         thisButton.removeClass('add-to-cart-button');
-        thisButton.html(`<button class="add-to-cart-button button">Add to Cart</button>`);
+        thisButton.html(`<button class="add-to-cart add-to-cart-button button">Add to Cart</button>`);
     }
 
     if (cart.length == 0) {
-        thisButton.text(`<button class="add-to-cart-button button">Add to Cart</button>`);
+        thisButton.text(`<button class="add-to-cart add-to-cart-button button">Add to Cart</button>`);
     }
     console.log('cart ', cart);
     localStorage.setItem('cart', JSON.stringify(cart));
-    $('#cart-count').text(cart.length); // updating cart items
+    $(".fa-cart-shopping").attr("data-cart-count", cart.length); // updating cart items
 }
