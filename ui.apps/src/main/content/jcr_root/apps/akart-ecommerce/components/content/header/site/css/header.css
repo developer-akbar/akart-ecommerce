@@ -170,9 +170,9 @@ a.logo-name {
   justify-content: center;
   align-items: center;
   font-size: .8rem;
-  height: 25px;
-  width: 25px;
-  top: -80%;
+  height: 20px;
+  width: 20px;
+  top: -70%;
   left: 7px;
   border: 2px solid transparent;
   border-radius: 50%;
@@ -216,8 +216,11 @@ a.logo-name {
     inset: -2px;
     position: absolute;
     background: radial-gradient(#01e100, #f50076, #00e6fd, #d0ff00);
-    animation: animate 2s linear infinite;
     z-index: -1;
+  }
+
+  .logo:hover::before {
+    animation: animate 2s linear infinite;
   }
   
   @keyframes animate {
@@ -269,8 +272,8 @@ a.logo-name {
   .secondary-navigation {
     position: relative;
     list-style: none;
-    margin-inline: 1rem;
-    padding: 1rem;
+    margin-inline-end: 2rem;
+    padding-block: 1rem 0.5rem
   }
   
   .secondary-navigation li i {

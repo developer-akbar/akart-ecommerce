@@ -19,8 +19,8 @@ navToggle.addEventListener('click', function () {
     if (primaryNav.classList.contains('active')) {
         document.body.style.overflow = 'hidden';
         navToggle.setAttribute("aria-expanded", "true");
-        document.querySelector('.fa-bars').style.display = 'none'
-        document.querySelector('.fa-xmark').style.display = 'block'
+        document.querySelector('.fa-bars').style.display = 'none';
+        document.querySelector('.fa-xmark').style.display = 'block';
     } else {
         document.body.style.overflow = '';
         navToggle.setAttribute("aria-expanded", "false");
