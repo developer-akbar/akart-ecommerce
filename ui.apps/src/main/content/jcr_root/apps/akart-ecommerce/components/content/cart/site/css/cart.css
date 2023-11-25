@@ -11,13 +11,6 @@
 .margin-around {
     margin: 1rem;
 }
-/* #cart-items .product:first-child {
-    border-top: none !important;
-}
-
-.saved-items .product:first-child {
-    border: none !important;
-} */
 
 .cart-container {
     display: flex;
@@ -213,7 +206,7 @@ td.currency-inr {
 
 button.place-order-button {
     width: 150px;
-    height: 50px;
+    height: 40px;
     font-weight: 700;
     background: #393be0;
     cursor: pointer;

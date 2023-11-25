@@ -1,6 +1,10 @@
 document.addEventListener('DOMContentLoaded', function () {
+    // updating cart count
+    const cart = JSON.parse(localStorage.getItem('cart')) ?? [];
+    document.querySelector(".fa-cart-shopping").setAttribute("data-cart-count", cart.length);
+
     const header = document.querySelector(".primary-header");
-    const headerHeight = header.clientHeight;
+    const headerHeight = header.getBoundingClientRect().height;
     document.body.style.paddingTop = headerHeight + 'px';
 });
 
@@ -15,8 +19,8 @@ navToggle.addEventListener('click', function () {
     if (primaryNav.classList.contains('active')) {
         document.body.style.overflow = 'hidden';
         navToggle.setAttribute("aria-expanded", "true");
-        document.querySelector('.fa-bars').style.display = 'none'
-        document.querySelector('.fa-xmark').style.display = 'block'
+        document.querySelector('.fa-bars').style.display = 'none';
+        document.querySelector('.fa-xmark').style.display = 'block';
     } else {
         document.body.style.overflow = '';
         navToggle.setAttribute("aria-expanded", "false");

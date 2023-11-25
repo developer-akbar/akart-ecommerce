@@ -13,6 +13,7 @@ Handlebars.registerHelper('multiply', function (val1, val2) {
 const savedItems = JSON.parse(localStorage.getItem('saved-items')) ?? [];
 const cart = JSON.parse(localStorage.getItem('cart')) ?? [];
 $('#cart-count').text(cart.length);
+$(".fa-cart-shopping").attr("data-cart-count", cart.length); // updating cart items
 
 $(document).on('readystatechange', function (e) {
     if (e.target.readyState === 'complete') {
@@ -84,7 +85,7 @@ $(document).on("click", ".remove-cart-item", function (e) {
         currentCart.splice(currentCart.indexOf(existingCartItem), 1);
         localStorage.setItem('cart', JSON.stringify(currentCart)); // updating cart after removing item
 
-        $('#cart-count').text(JSON.parse(localStorage.getItem('cart')).length);
+        $(".fa-cart-shopping").attr("data-cart-count", JSON.parse(localStorage.getItem('cart')).length); // updating cart items
 
         if ($(".cart-items-wrapper .product").length <= 0) {
             $(".cart-price-wrapper").remove();
@@ -154,7 +155,7 @@ $(document).on("click", ".save-for-later-item", function () {
         currentCart.splice(currentCart.indexOf(existingCartItem), 1);
         localStorage.setItem('cart', JSON.stringify(currentCart)); // updating cart after removing item
 
-        $('#cart-count').text(JSON.parse(localStorage.getItem('cart')).length);
+        $(".fa-cart-shopping").attr("data-cart-count", JSON.parse(localStorage.getItem('cart')).length); // updating cart items
 
         if ($(".cart-items-wrapper .product").length <= 0) {
             $(".cart-price-wrapper").remove();
@@ -205,6 +206,6 @@ $(document).on("click", ".move-to-cart", function () {
         savedItems.splice(savedItems.indexOf(existingSavedItem), 1);
         localStorage.setItem('saved-items', JSON.stringify(savedItems)); // updating saved-items after removing item
 
-        $('#cart-count').text(JSON.parse(localStorage.getItem('cart')).length);
+        $(".fa-cart-shopping").attr("data-cart-count", JSON.parse(localStorage.getItem('cart')).length); // updating cart items
     }, 250);
 });
