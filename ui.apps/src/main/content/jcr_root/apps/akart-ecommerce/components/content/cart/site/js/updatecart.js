@@ -64,5 +64,5 @@ function updateCart(thisButton, item) {
 
     console.log('cart ', cart);
     localStorage.setItem('cart', JSON.stringify(cart));
-    $('#cart-count').text(cart.length); // updating cart items
+    $('.data-cart-count').attr("data-cart-count", cart.length); // updating cart items
 }
